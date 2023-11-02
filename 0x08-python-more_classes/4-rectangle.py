@@ -49,8 +49,27 @@ class Rectangle:
         """Returns The area of the rectangle"""
         return (self.__width * self.__height)
 
+    def __str__(self):
+        """
+        Returns the visible structure of the area.
+
+       '#' are symbols used to represent the building blocks.
+       """
+
+        if self.__width == 0 or self.__height == 0:
+            return ("")
+        rec = []
+
+        for i in range(self.__height):
+            accum = "#" * self.__width
+            rec.append(accum)
+            if i != (self.__height - 1):
+                rec.append("\n")
+
+        return ("".join(rec))
+
     def __repr__(self):
-        """Return string representation of the Rectangle."""
-        rec = "Rectangle(" + str(self.__width)
-        rec += ", " + str(self.__height) + ")"
-        return (rec)
+        """Return the string representation of the Rectangle."""
+        rect = "Rectangle(" + str(self.__width)
+        rect += ", " + str(self.__height) + ")"
+        return (rect)
